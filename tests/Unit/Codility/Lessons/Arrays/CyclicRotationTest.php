@@ -42,12 +42,12 @@ class CyclicRotationTest extends TestCase
             ],
         ];
 
-        $binaryGap = new CyclicRotation();
+        $cyclicRotation = new CyclicRotation();
 
         foreach ($tests as $increment => $questionArr) {
             $this->assertEquals(
                 $questionArr['correctArr'],
-                $binaryGap->solution(
+                $cyclicRotation->solution(
                     $questionArr['oriArr'],
                     $questionArr['times']
                 )

@@ -20,12 +20,12 @@ class OddOccurrencesInArrayTest extends TestCase
             ]
         ];
 
-        $binaryGap = new OddOccurrencesInArray();
+        $oddOccurrencesInArray = new OddOccurrencesInArray();
 
         foreach ($tests as $increment => $questionArr) {
             $this->assertEquals(
                 $questionArr['correct'],
-                $binaryGap->solution(
+                $oddOccurrencesInArray->solution(
                     $questionArr['questionArr'],
                 )
             );
