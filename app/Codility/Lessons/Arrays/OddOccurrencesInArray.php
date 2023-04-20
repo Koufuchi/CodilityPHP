@@ -4,45 +4,44 @@ namespace App\Codility\Lessons\Arrays;
 
 class OddOccurrencesInArray
 {
-    // https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
+    // https://app.codility.com/programmers/lessons/2-arrays/odd_occurrences_in_array/
 
     /**
-     *  題目：
-     *  解法：
-     *  時間複雜度 O()
-     *  空間複雜度 O()
+     *  時間複雜度 O(N)
+     *  空間複雜度 O(N) 最糟的情況下會存 N/2 的數量
      */
-    function solution(array $A)
+    function solution(array $A): int
     {
         $resultArr = [];
-        foreach ($A as $increment => $int) {
-            if (!in_array($int, $resultArr)) {
-                $resultArr[] = $int;
+        foreach ($A as $int) {
+            if (!isset($resultArr[$int])) {
+                $resultArr[$int] = 1;
             } else {
-                unset($resultArr[array_search($int, $resultArr)]);
+                unset($resultArr[$int]);
             }
         }
 
-        return reset($resultArr);
+        return array_key_first($resultArr);
     }
 
     /**
-     *  題目：
-     *  解法：
-     *  時間複雜度 O()
-     *  空間複雜度 O()
+     *  時間複雜度 O(N) 實際上要跑 2N
+     *  空間複雜度 O(N) 每次都要存 N
      */
     function solutionWorse(array $A)
     {
-        $resultArr = [];
-        foreach ($A as $increment => $int) {
-            if (!in_array($int, $resultArr)) {
-                $resultArr[] = $int;
+        $boardArr = [];
+        foreach ($A as $int) {
+            if (!isset($boardArr[$int])) {
+                $boardArr[$int] = 1;
             } else {
-                unset($resultArr[array_search($int, $resultArr)]);
+                $boardArr[$int] += 1;
             }
         }
-
-        return reset($resultArr);
+        foreach ($boardArr as $int => $times) {
+            if ($times == 1) {
+                return $int;
+            }
+        }
     }
 }
