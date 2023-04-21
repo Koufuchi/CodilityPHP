@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Codility\Lessons\TimeComplexity\PermMissingElemTest;
+namespace App\Codility\Lessons\TimeComplexity\PermMissingElem;
 
 use App\Codility\Lessons\TimeComplexity\PermMissingElem;
 use PHPUnit\Framework\TestCase;
