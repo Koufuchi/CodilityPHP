@@ -13,13 +13,13 @@ class FrogRiverOne
      */
     function solution(int $X, array $A): int
     {
-        $tempArr = []; // 記錄被找到的合法位置
+        $findArr = []; // 記錄被找到的合法位置
         $maxTime = -1; // 到合法位置需花最久的時間
         $toFindCnt = $X; // 還有多少位置需要被找
 
         foreach ($A as $time => $position) {
-            if (!isset($tempArr[$position]) && $position <= $X) {
-                $tempArr[$position] = true;
+            if (!isset($findArr[$position]) && $position <= $X) {
+                $findArr[$position] = true;
                 if ($time > $maxTime) {
                     $maxTime = $time;
                 }
