@@ -19,7 +19,7 @@ class MissingInteger
                 $boardArr[$int] = true;
             }
         }
-        for ($i = 1; $i <= count($boardArr); $i++) {
+        for ($i = 1; $i <= count($boardArr) + 1; $i++) {
             if (!isset($boardArr[$i])) {
                 return $i;
             }
